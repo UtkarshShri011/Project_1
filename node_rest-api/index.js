@@ -1,9 +1,11 @@
+//This is for the Setting the  server
+
 const express = require("express");
 
 const app =  express();
-const PORT = 1000;
+const PORT = 3000;
 
 //Routes
-
-
-app.listen(PORT, () => console.log('Server is started at the Port:', $(PORT)));
+app.get('/', (req, res) => {res.send('Hello World')});
+// call back functions
+app.listen(PORT, () => console.log('Server is started at the Port 3000'));
