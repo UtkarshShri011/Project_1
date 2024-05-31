@@ -1,0 +1,23 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "This is a test assignment at deqode",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UtkarshShri011/Project_1.git"
+  },
+  "author": "Utkarsh Shrivastava",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UtkarshShri011/Project_1/issues"
+  },
+  "homepage": "https://github.com/UtkarshShri011/Project_1#readme",
+  "dependencies": {
+    "expres": "0.0.5",
+    "express": "^4.19.2"
+  }
+}
