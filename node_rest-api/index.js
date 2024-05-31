@@ -1,12 +1,14 @@
 //This is for the Setting the  server
 
 const express = require("express");
-
+const stdroutes = require("/home/deq/Desktop/node_rest-api/routes.js")
 const app =  express();
 const PORT = 3000;
+app.use(express.json()); //middleware
 
 //Routes
 app.get('/', (req, res) => {res.send('Hello World')});
 // call back functions
 app.get('/people',(req,res) =>{res.send( "People Were Here")});
+app.use("/api/school",stdroutes);
 app.listen(PORT, () => console.log('Server is started at the Port 3000'));
