@@ -38,10 +38,29 @@ app.get('/api/teacher',(req,res) => {
 });
 
 app.post('/api/addstudent',(req,res) => {
-      pool.query('INSERT INTO student VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',['4','harshit','S','1234567890','UP','India'],(error, results)=>{
+      pool.query('INSERT INTO student VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',['5','harshita','k','1234567890','HP','India'],(error, results)=>{
         if(error) throw error;
         res.status(200).json(results.rows);
        })
+});
+
+app.delete('/api/delstudent/:id',(req,res)=>{ 
+    const stu_id = req.params.id;
+
+    pool.query(
+        'DELETE FROM student WHERE stu_id = $1 RETURNING *',
+        [stu_id],
+        (error, results) => {
+            if (error) {
+                console.error('Error executing query', error.stack);
+                res.status(500).send('Error executing query');
+            } else if (results.rowCount === 0) {
+                res.status(404).send('Student not found');
+            } else {
+                res.status(200).json(results.rows[0]); // Send back the deleted row
+            }
+        }
+    );
 });
 
 
